@@ -1,0 +1,138 @@
+{% extends "registration/base.html" %} 
+{% load static %}
+{% block title %} فروش پلاس  {% endblock %}
+{% block navbar %}   <nav class="navbar">
+    <a href="#home">خانه</a>
+    <a href="#products">کالاها</a>
+    <a href="#featured">ویژه</a>
+    <a href="#review">نظرات</a>
+    <a href="{% url 'login' %}"class="nav-link">ایجاد حساب</a>
+    <p>Uploaded at:{{photo.uploaded_at}}<p>
+        <a herf="{% url 'upload_photo' %}"class="nav-link">ثبت آگهی</a>
+        <a href="{% url 'finish' %}"class="nav-link">اخرین محصولات</a>
+        <a href="{% url 'search_users' %}"class="nav-link">جست و جو</a>
+    </nav>
+{% endblock %}
+
+{% block post %}<section class="featured" id="featured">
+
+ 
+    <!-- service section ends -->
+    
+    <!-- products section starts  -->
+    
+       <h1 class="heading"> محصولات <span>برجسته</span></h1>
+        <div class="row">
+            <div class="image-container">
+                <div class="small-image">
+                    {% if item.image %}
+                     <img src="{{ 'item.image.url' }}" class="featured-image-3" alt="">
+                     <img src="{{ 'item.image.url' }}" class="featured-image-3" alt="">
+                     <img src="{{'item.image.url' }}" class="featured-image-3" alt="">
+                     <img src="{{ 'item.image.url' }}" class="featured-image-3" alt="">
+                    {% else %}
+                     <img src="{% static "path/to/placeholder/image.png" %} %}" class="text" alt="...">
+                    {% endif %}
+                     
+                </div>
+                <div class="big-image">
+                    <img src="{{ item.image.url }}" class="big-image-3" alt="">
+                </div>
+            </div>
+            <div class="content">
+                <h3>{{item.title}}</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>{{ item.text }} </p>
+                <div class="price"> <span>{{ item.integer }}</span></div>
+                <a href="#" class="btn">افزودن به سبد خرید</a>
+            </div>
+        </div>
+    
+    </section>
+{% for item in post %}  <section class="featured" id="featured">
+
+ 
+    <!-- service section ends -->
+    
+    <!-- products section starts  -->
+    
+       <h1 class="heading"> محصولات <span>برجسته</span></h1>
+        <div class="row">
+            <div class="image-container">
+                <div class="small-image">
+                    {% if item.image %}
+                    <img src="{{ item.image.url }}" class="featured-image-3" alt="">
+                    {% if item.image_2 %}
+                    <img src="{{ item.image_2.url }}" class="featured-image-3" alt="">
+                    {% endif %}
+                    {% if item.image_3 %}
+                    <img src="{{ item.image_3.url  }}" class="featured-image-3" alt="">
+                    {% endif %}
+                    {% if item.image_4 %}
+                    <img src="{{ item.image_4.url }}" class="featured-image-3" alt="">
+                    {% endif %}
+                    {% else %}
+                     <img src="{% static "path/to/placeholder/image.png" %} %}" class="text" alt="...">
+                    {% endif %}
+                     
+                </div>
+                <div class="big-image">
+                    {% if item.image %}
+                    <img src="{{ item.image.url }}" class="big-image-3" alt="">
+                    {% else %}
+                    <img src="{% static "path/to/placeholder/image.png" %} %}" class="text" alt="...">
+                    {% endif %}
+                </div>
+            </div>
+            <div class="content">
+                <h3>{{item.title}}</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="far fa-star"></i>
+                </div>
+                <p>{{ item.text }} </p>
+                <div class="price"> <span>{{ item.integer }}</span></div>
+                <a href="#" class="btn">افزودن به سبد خرید</a>
+            </div>
+        </div>
+    
+    </section>
+    
+{% endfor %}  
+{% endblock %}  
+
+<!-- home section ends -->
+
+<!-- service section starts  -->
+  
+    
+
+<!-- home section ends -->
+
+<!-- service section starts  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- custom js file link  -->
+
+</html>

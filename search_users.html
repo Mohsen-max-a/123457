@@ -1,0 +1,49 @@
+<!-- search_users.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>User Search</title>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+ <div class="container mt-5">
+ <h1>Search Users</h1>
+ <form method="get" class="mb-4">
+{{ form.as_p }}
+ <button type="submit" class="btn btn-primary">Search</button>
+ </form>
+
+ <ul class="list-group">
+ {% for user in page_obj %}
+ <li class="list-group-item">{{ user.username }}</li>  <!-- Adjust to display additional user info -->
+ {% empty %}
+ <li class="list-group-item">No users found.</li>
+ {% endfor %}
+ </ul>
+
+<!-- Pagination controls -->
+ <div class="mt-4">
+ <nav aria-label="Page navigation">
+ <ul class="pagination">
+ {% if page_obj.has_previous %}
+ <li class="page-item">
+ <a class="page-link" href="?query={{ form.query.value }}&page=1">First</a>
+ </li>
+ <li class="page-item">
+ <a class="page-link" href="?query={{ form.query.value }}&page={{ page_obj.previous_page_number }}">Previous</a>
+ </li>
+ {% endif %}
+
+ <li class="page-item disabled"><span class="page-link">{{ page_obj.number }}</span></li>
+
+ {% if page_obj.has_next %}
+ <li class="page-item">
+ <a class="page-link" href="?query={{ form.query.value }}&page={{ page_obj.next_page_number }}">Next</a>
+ </li>
+ <li class="page-item">
+ <a class="page-link" href="?query={{ form.query.value }}&page={{ page_obj.paginator.num_pages }}">Last</a>
+ </li>
+ {% endif %}
+</ul>
+ </nav>

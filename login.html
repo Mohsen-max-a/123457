@@ -1,0 +1,11 @@
+{% extends "registration/base.html" %}
+{% block content %}
+<form method="post"> 
+     {% csrf_token %}
+     {{ form.as_p }}
+     <h2>ایجاد حساب  </h2>
+     <button style="border-radius: 200px;border: 3px solid red" type="submit" class="btn btn-primary">ثبت نام</button>
+</form> 
+  
+{% endblock %}
+

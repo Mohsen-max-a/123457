@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %} {% endblock %} </title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+
+<!-- header section starts  -->
+
+<header>
+
+    <div id="menu-bar" class="fas fa-bars"></div>
+
+    <a href="#" class="logo">نایک</a>
+
+  {% block navbar %}  <nav class="navbar">
+        <a href="#home">خانه</a>
+        <a href="#products">محصولات</a>
+        <a href="#featured">ویژه</a>
+        <a href="#review">نظرات</a>
+        <a href="{% url 'login' %}"class="nav-link">نام کاربری</a>
+        <a href="{% url 'upload_photo' %}"class="nav-link">ثبت آگهی</a>
+    </nav>
+    {% endblock %}
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="#" class="fas fa-shopping-cart"></a>
+        <a href="#" class="fas fa-user"></a>
+    </div>
+
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+ {% block post %}{% endblock %}
+
+
+
+
+ 
+<section class="home" id="home">
+
+    <div class="slide-container active">
+        <div class="slide">
+            <div class="content">
+                <span>{{item.title.url}}</span>
+                <h3>{{item.title.url}}</h3>
+                <p> {{item.text.url}}</p>
+                <a href="#" class="btn">افزودن به سبد خرید</a>
+            </div>
+            <div class="image">
+
+                <img src="{% static 'images/home-shoe-1.png' %}" class="shoe" alt="">
+                <img src="{% static 'images/home-text-1.png' %}" class="text" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="content">
+                <span> {{item.title.url}} </span>
+                <h3> {{item.title.url}} </h3>
+                <p> {{item.text.url}} </p>
+                <a href="#" class="btn">افزودن به سبد خرید</a>
+            </div>
+            <div class="image">
+                <img src="{% static 'images/home-shoe-2.png'%}" class="shoe" alt="">
+                <img src="{% static 'images/home-text-2.png'%}" class="text" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="content">
+                <span>کفش زرد نایک</span>
+                <h3>کفش نایک metcon</h3>
+                <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
+                <a href="#" class="btn">افزودن به سبد خرید</a>
+            </div>
+            <div class="image">
+                <img src="{% static 'images/home-shoe-3.png'%}" class="shoe" alt="">
+                <img src="{% static 'images/home-text-3.png'%}" class="text" alt="">
+            </div>
+        </div>
+    </div>
+
+    <div id="prev" class="fas fa-chevron-left" onclick="prev()"></div>
+    <div id="next" class="fas fa-chevron-right" onclick="next()"></div>
+
+</section>
+{% block content %}
+
+
+{% endblock %}
+<!-- home section ends -->
+
+<!-- service section starts  -->
+
+<section class="service">
+
+    <div class="box-container">
+
+        <div class="box">
+            <i class="fas fa-shipping-fast"></i>
+            <h3>تحویل سریع</h3>
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-undo"></i>
+            <h3>10 روز تعویض</h3>
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-headset"></i>
+            <h3>پشتیبانی 24 * 7</h3>
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- featured section ends -->
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> بازخورد <span>مشتریان</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="images/pic1.png" alt="">
+            <h3>زوپیر حسابی</h3>
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد </p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/pic2.png' %}" alt="">
+            <h3>زوپیر حسابی</h3>
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد </p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+            </div>
+        </div>
+
+        <div class="box">
+            <img src="{% static 'images/pic3.png'%}" alt="">
+            <h3>زوپیر حسابی</h3>
+            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد </p>
+            <div class="stars">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->
+
+<!-- newsletter section starts  -->
+
+<section class="newsletter">
+
+    <div class="content">
+        <h3>خبرنامه ماهانه</h3>
+        <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است </p>
+        <form action="">
+            <input type="email" placeholder="ایمیل خود را وارد کنید" class="box">
+            <input type="submit" value="عضویت" class="btn">
+        </form>
+    </div>
+
+</section>
+
+<!-- newsletter section ends -->
+
+<!-- footer section  -->
+
+<section class="footer">
+
+    <div class="box-container">
+
+        <div class="box">
+            <h3>دیگر فروشگاه ها</h3>
+            <a href="#">تهران</a>
+            <a href="#">مشهد</a>
+            <a href="#">شیراز</a>
+            <a href="#">اصفهان</a>
+        </div>
+
+        <div class="box">
+            <h3>لینک سریع</h3>
+            <a href="#">خانه</a>
+            <a href="#">محصولات</a>
+            <a href="#">ویژه</a>
+            <a href="#">نظرات</a>
+        </div>
+
+        <div class="box">
+            <h3>پیوندهای اضافی</h3>
+            <a href="#">اکانت من</a>
+            <a href="#">مورد علاقه من</a>
+            <a href="#">سفارش های من</a>
+            <a href="#">اخبار جدید</a>
+        </div>
+
+        <div class="box">
+            <h3>دنبال کردن</h3>
+            <a href="#">facebook</a>
+            <a href="#">twitter</a>
+            <a href="#">instagram</a>
+            <a href="#">linkedin</a>
+        </div>
+
+        <div class="credit">طراحی توسط <a> نت کپی </a> | کلیه حقوق محفوظ است</div>
+
+    </div>
+
+</section>
+
+<script src="{% static 'js/script.js' %}"></script>
+    
+</body>

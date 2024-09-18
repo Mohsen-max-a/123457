@@ -1,0 +1,67 @@
+{% extends "registration/base.html" %}
+{% block post %}<section class="products" id="products">
+
+ <h1 class="heading"> آخرین <span>محصولات</span> </h1>
+                                            
+ <div class="box-container">
+                                           
+    <div class="box">
+        <div class="icons"
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-share"></a>
+            <a href="#" class="fas fa-eye"></a>
+        </div>
+        {% if item.image %}
+       <img src="{{item.image.url}}" alt="">
+       {% else %}
+       <p> No imaged </p>
+       {% endif %}
+       <div class="content">
+           <h3>{{item.title}}</h3>
+           <div class="price">{{item.integer}} <span>{{item.integer}}</span></div>
+           <div class="stars">
+      <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+               <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="#" class="btn">افزودن به سبد خرید</a>
+        </div>
+    </div>
+</section>                                               
+{% endblock %}
+{% for item in post %} <section class="products" id="products">
+
+<h1 class="heading"> آخرین <span>محصولات</span> </h1>
+                                            
+<div class="box-container">
+                                            
+    <div class="box">
+        <div class="icons">
+            <a href="#" class="fas fa-heart"></a>
+            <a href="#" class="fas fa-share"></a>
+            <a href="#" class="fas fa-eye"></a>
+        </div>
+        {% if item.image %}
+        <img src="{{item.image.url}}" alt="">        {% else %}
+                                                        <p>No imaged</p>
+        {% endif %}
+        <div class="content">
+            <h3>{{item.title}}</h3>
+            <div class="price">{{item.integer}} <span>{{item.integer}}</span></div>
+            <div class="stars">                
+<i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+            </div>
+            <a href="#" class="btn">افزودن به سبد خرید</a>
+        </div>
+    </div>
+</section>
+                                                  
+                                            
+                                            
+{% endfor %}

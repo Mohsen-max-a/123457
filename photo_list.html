@@ -1,0 +1,11 @@
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <title>اپلود تصویر آگهی</title>
+</head>
+<body>
+    <h1> Uploaded Photos </h1> 
+    {% for item in image %}     
+    <img src"{{ item.image.url }}" alt="Image" style="max-width: 300px; max-height: 300px;">
+    {% empty %}
+    {% endfor %}
